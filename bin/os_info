@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+import subprocess
+import sys
+import platform
+
+with open("/proc/version","r") as f:
+    array = []
+    for line in f:
+        array=line.split(' ')
+	print(array)
+
+file = open("os_info.txt","w")
+message = "Operating System Type : " + array[0] + " \n"
+file.write(message)
+
+message = "OS Distribution : " + array[8] +" "+ array[9] + " \n"
+file.write(message)
+
+
+message = "Kernel version : " + array[1] +" "+ array[2] + " \n"
+file.write(message)
+
+
+message = "Information on Kernel Build : " + str(platform.uname()) + " \n"
+file.write(message)
+
+
+message = "Kernel Gcc Version : " + array[4] + array[5] + array[6] + ") \n"
+file.write(message)
+
+
+message = "Kernel Build Time : " + array[13] + " " + array[14] + " " + array[15] + " " + array[16] + " " + array[17] + " " + array[18] + " \n"
+file.write(message)
+
+
+message = "System Architecture Information : " + "\n"
+file.close()
+
+subprocess.Popen("lscpu",shell=True,stdout=open("os_info.txt","a"))
+
+
+
