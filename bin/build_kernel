@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+
+import subprocess
+import sys
+
+#Take kernel Version as input from user
+param=raw_input("enter kernel build version as 4.xx.xx (0-9)")
+
+#Make  sure system is up to date"
+subprocess.call("sudo apt-get update",shell=True,stdout=None)
+
+#Install these modules which are essential for Kernel Build process
+
+subprocess.call("sudo apt-get install git fakeroot build-essential ncurses-dev xz-utils libssl-dev bc",shell=True,stdout=None)
+command="wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-"+param+".tar.xz -P ~"
+subprocess.call(command,shell=True,stdout=None)
+#download the kernel version from kernel.org using user input paramater and extract the kernel from tar.xz file to home directory
+
+command="tar -xvf linux-"+param+" -C ~"
+subprocess.call(command,shell=True,stdout=None)
+command='~/linux-'+param
+
+#copy the current kernel config into .config file
+
+subprocess.call("sudo cp /boot/config-$(uname -r) .config",shell=True,stdout=None,cwd=command)
+
+#make oldconfig takes the old configuration stored in .config.old and uses that for building your kernel
+
+subprocess.call("sudo make oldconfig",shell=True,stdout=None,cwd=command)
+#compile and build your kernel, install kernel modules and install them. -j2 assigns number of threads per core of your cpu
+subprocess.call("sudo make -j2 && sudo make modules_install -j2 && sudo make install -j2",shell=True,stdout=None,cwd=command)
+#update initramfs
+command = "sudo update-initramfs -c -k "+param
+subprocess.call(command,shell=True,stdout=None)
+#update grub to so that it boots with new kernel
+subprocess.call("sudo update-grub",shell=True,stdout=None)
+subprocess.call("sudo update-grub2",shell=True,stdout=None)
+
+
