@@ -4,6 +4,7 @@ import subprocess
 import sys
 import platform
 
+#Script to display system information"
 with open("/proc/version","r") as f:
     array = []
     for line in f:
