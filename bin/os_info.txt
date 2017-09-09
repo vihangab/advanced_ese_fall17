@@ -1,0 +1,31 @@
+Operating System Type : Linux 
+OS Distribution : (Ubuntu 5.4.0-6ubuntu1~16.04.4) 
+Kernel version : version 4.12.10 
+Information on Kernel Build : ('Linux', 'vihangab', '4.12.10', '#1 SMP Tue Sep 5 14:30:30 MDT 2017', 'x86_64', 'x86_64') 
+Kernel Gcc Version : (gccversion5.4.0) 
+Kernel Build Time : Tue Sep 5 14:30:30 MDT 2017
+ 
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                1
+On-line CPU(s) list:   0
+Thread(s) per core:    1
+Core(s) per socket:    1
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 142
+Model name:            Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+Stepping:              9
+CPU MHz:               2904.000
+BogoMIPS:              5808.00
+Hypervisor vendor:     KVM
+Virtualization type:   full
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              4096K
+NUMA node0 CPU(s):     0
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid pni pclmulqdq monitor ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch rdseed clflushopt
