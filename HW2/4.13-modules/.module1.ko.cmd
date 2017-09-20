@@ -1,0 +1,1 @@
+cmd_/home/vihanga/4.13-modules/module1.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/vihanga/4.13-modules/module1.ko /home/vihanga/4.13-modules/module1.o /home/vihanga/4.13-modules/module1.mod.o ;  true

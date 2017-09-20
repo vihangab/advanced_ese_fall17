@@ -1,0 +1,15 @@
+#include<linux/init.h>
+#include<linux/module.h>
+
+int module1_init(void)
+{
+	printk(KERN_ALERT "Kernel module init function %s \n",__FUNCTION__);
+	return 0;
+}
+
+int module1_exit(void)
+{
+	printk(KERN_ALERT "Kernel module exit function %s \n",__FUNCTION__);
+}
+module_init(module1_init);
+module_exit(module1_exit);
