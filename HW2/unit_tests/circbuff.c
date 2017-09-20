@@ -220,17 +220,28 @@ void cbuffInit(struct CircBuff** circbuff, uint32_t len)
 cbuff_stat cbuffPrint(struct CircBuff** circbuff)
 {
 	uint32_t i;
+	uint32_t* temp = NULL;
 	
+	/*Invalid location*/
 	if((*circbuff) == NULL)
+	{		
 		return ERROR;
-	else
-	{
-		for(i= 0;i < (*circbuff)->count; i++)
-		{
-			//printf("Circular buffer : \n");
-			//printf("%d \n", *((*circbuff)->tail++));
-		}
 	}
+
+	temp = (*circbuff)->tail;
+	
+	for(i= 0;i < (*circbuff)->count; i++)
+	{
+			
+		//printf("Circular buffer : %d\n",(*temp));
+		temp++;	
+			
+            if(temp > ((*circbuff)->buffer + (*circbuff)->length-1)) //wrap around
+			{
+                temp=(*circbuff)->buffer;
+            }
+			
+        }            	
 	return SUCCESS;
 			
 }
